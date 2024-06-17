@@ -10,20 +10,20 @@ Hью-Йоpка в Вашингтон?                                   зап�
 • Опpеделить всех конкуpентов.
 */
 % компании и города:
-company (amtrak)
-company(transit)
-company(greyhound)
-company(peoples) 
+company(amtrak).
+company(transit).
+company(greyhound).
+company(peoples).
 city(newyork).
 city(portland).
 city(boston).
 city(burlington).
 city(washington).
-city(princeton)
+city(princeton).
 %граф поиска пути
 path(X,Y):- edge(X,Y).
 path(X,Y):- edge(X,Z),
 path(Z,Y).
 edge(ny,bn).
 edge(bn,pl).
-edge(ny,wa)
+edge(ny,wa).
