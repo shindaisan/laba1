@@ -20,6 +20,15 @@ city(boston).
 city(burlington).
 city(washington).
 city(princeton).
+% маршруты
+amtrak(newyork,boston).
+transit(newyork,princeton).
+amtrak(boston,portland).
+greyhound(boston,portland).
+amtrak(newyork,washington).
+peoples(newyork,washington).
+peoples(burlington,newyork).
+
 %алгоритм поиска конкурентов:
 
 %граф поиска пути
