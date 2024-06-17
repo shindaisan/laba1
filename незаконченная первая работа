@@ -10,10 +10,10 @@ Hью-Йоpка в Вашингтон?                                   зап�
 • Опpеделить всех конкуpентов.
 */
 % компании и города:
- amtrak.amtrak. amtrak. 
-transit
-greyhound
-peples(ny,wa), peoples
+company (amtrak)
+company(transit)
+company(greyhound)
+company(peoples) 
 city(newyork).
 city(portland).
 city(boston).
