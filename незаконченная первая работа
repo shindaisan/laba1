@@ -23,12 +23,13 @@ city(washington).
 city(princeton).
 % маршруты
 amtrak(newyork,boston).
-transit(newyork,princeton).
 amtrak(boston,portland).
-greyhound(boston,portland).
 amtrak(newyork,washington).
+transit(newyork,princeton).
+greyhound(boston,portland).
 peoples(newyork,washington).
 peoples(burlington,newyork).
+
 
 %алгоритм поиска конкурентов:
 
