@@ -29,7 +29,13 @@ transit(newyork,princeton).
 greyhound(boston,portland).
 peoples(newyork,washington).
 peoples(burlington,newyork).
-
+алгоритм для проверки возможности путешествия
+can_travel(X, Y) :-
+  (amtrak(X, Y); greyhound(X, Y)),
+  write('Yes, you can travel from '), write(X), write(' to '), write(Y), write('.'), nl.
+can_travel(X, Y) :-
+  path(X, Z),
+  can_travel(Z, Y).
 
 %алгоритм поиска конкурентов:
 competitor(X,Y).
