@@ -7,7 +7,7 @@
 • Какие компании дают возможность путешествовать из      запрос: can_travel(burlington, portland). 
 
 Hью-Йоpка в Вашингтон?                                   запрос:
-• Можно ли путешествовать из Биpлингтона в Поpтленд?     запрос:competitor(X,Y)
+• Можно ли путешествовать из Биpлингтона в Поpтленд?     запрос: find_all_competitors(Competitors)
 • Опpеделить всех конкуpентов.
 */
 % компании и города:
@@ -30,18 +30,31 @@ greyhound(boston,portland).
 peoples(newyork,washington).
 peoples(burlington,newyork).
 алгоритм для проверки возможности путешествия
-can_travel(X, Y) :-
-  (amtrak(X, Y); greyhound(X, Y)),
-  write('да ты можешь путешествовать из'), write(X), write('в'), write(Y), write('.'), nl.
-can_travel(X, Y) :-
-  path(X, Z),
-  can_travel(Z, Y).
+ (amtrak(X, Y); transit(X, Y); peoples(X, Y); greyhound(X, Y)),
+  write('Ты можешь путешествовать из '), write(X), write(' в '), write(Y), write('.'), nl.
 
-%алгоритм поиска конкурентов:
-competitor(X,Y).
-%граф поиска пути
-path(X,Y):- edge(X,Y).
-path(X,Y):- edge(X,Z),
-path(Z,Y).
-edge(X,Z).
-edge(Z,Yl).
+can_travel(X, Y) :-
+  (amtrak(X, Z); transit(X, Z); peoples(X, Z); greyhound(X, Z)),
+  can_travel(Z, Y).
+% маршрут компании амтрак 
+path(amtrak, newyork, boston).
+path(amtrak, boston, portland).
+path(amtrak, newyork, washington).
+
+ %маршрут компании транзит
+path(transit, newyork, princeton).
+
+%маршруты компании грейхаунд
+path(greyhound, boston, portland).
+
+% маршруты компании пиплз
+path(peoples, newyork, washington).
+path(peoples, burlington, newyork).
+% алгоритм перебора всех конкурентных пар
+competitors(Company1, Company2) :-
+    Company1 \== Company2,
+    path(Company1, CityA, CityB),
+    path(Company2, CityA, CityB).
+find_all_competitors(Competitors) :-
+    findall((X,Y), competitors(X,Y), Competitors).
+
