@@ -20,6 +20,8 @@ city(boston).
 city(burlington).
 city(washington).
 city(princeton).
+%алгоритм поиска конкурентов:
+
 %граф поиска пути
 path(X,Y):- edge(X,Y).
 path(X,Y):- edge(X,Z),
