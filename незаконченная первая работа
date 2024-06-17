@@ -32,7 +32,7 @@ peoples(burlington,newyork).
 
 
 %алгоритм поиска конкурентов:
-
+competitor(X,Y).
 %граф поиска пути
 path(X,Y):- edge(X,Y).
 path(X,Y):- edge(X,Z),
