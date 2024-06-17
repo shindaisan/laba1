@@ -36,6 +36,5 @@ peoples(burlington,newyork).
 path(X,Y):- edge(X,Y).
 path(X,Y):- edge(X,Z),
 path(Z,Y).
-edge(ny,bn).
-edge(bn,pl).
-edge(ny,wa).
+edge(X,Z).
+edge(Z,Yl).
